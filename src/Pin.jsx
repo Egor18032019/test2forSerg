@@ -6,7 +6,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import { SETLIKE } from "./const.js"
+import FavoriteIcon from '@material-ui/icons/Favorite';
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
@@ -25,13 +26,19 @@ const useStyles = makeStyles({
 });
 
 const Pin = (props) => {
-    const classes = useStyles();
 
-    const { place } = props;
+
+    const classes = useStyles();
+    const { place, dispatch } = props;
+    const itLike = place.like ? "secondary" : "disabled";
     const setLike = () => {
-        console.log("place.like=true")
+        console.log("place.like=true " + place.id)
+        dispatch({
+            type: SETLIKE,
+            payload: place.id
+        })
     }
-    
+
     if (place) {
         const { attributes, relationships } = place;
         const { address } = attributes;
@@ -66,7 +73,10 @@ const Pin = (props) => {
                 <CardActions>
                     <Button onClick={setLike}
                         size="small">добавить значок Like</Button>
-                </CardActions>
+
+                    <FavoriteIcon color={itLike} />
+
+                 </CardActions>
             </Card>
         )
     }

@@ -2,14 +2,11 @@
 
 import Pins from "./Pins.jsx";
 
-function Main(props) {    
-  const {response} = props;
+function Main() {    
 
   return (
     <main>
-      <Pins
-        places={response}
-      />
+      <Pins/>
     </main>
   );
 }

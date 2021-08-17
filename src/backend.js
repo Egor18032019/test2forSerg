@@ -6,7 +6,7 @@ const onLoadForm = (data) => {
     } = data;
     response.map(
         (place) =>
-        place["like"] = "false"
+        place["like"] = false
     )
     return data;
 }
