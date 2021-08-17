@@ -8,6 +8,7 @@ import {
 import data from "./data/entities.json"
 
 const dataPlaces = onLoadForm(data);
+
 const {
     response
 } = dataPlaces;
